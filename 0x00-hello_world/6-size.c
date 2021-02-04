@@ -1,10 +1,10 @@
 #include <stdio.h>
 /**
- * size - show the size of each type of var
+ * main - Entry point that shows the size of each type of var
  *
- * Return: Always 0
+ * Return: Always 0 (meaning of succes)
  */
-void size(void)
+int main(void)
 {
 	printf("Size of a char: %d byte(s)\n", sizeof(char));
 	printf("Size of an int: %d byte(s)\n", sizeof(int));
