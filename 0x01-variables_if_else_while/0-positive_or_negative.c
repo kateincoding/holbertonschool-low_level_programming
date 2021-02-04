@@ -3,8 +3,8 @@
 #include <stdio.h>
 
 /**
- * main - program that generate a number prints if it is positive, negative or zero
- * 
+ * main - program that prints if it is positive, negative or zero
+ *
  * Return: Always 0 (0 = Success)
  */
 int main(void)
