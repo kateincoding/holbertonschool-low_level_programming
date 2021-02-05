@@ -7,9 +7,14 @@
  */
 int main(void)
 {
-	int i, j, m, n;
+	int i;
+	int j;
+	int m;
+	int n;
 
-	i = j = n = '0';
+	i = 0;
+	j = 0;
+	n = 0;
 	for (m = '0'; m <= '9'; m++)
 	{
 		while (n <= '9')
@@ -29,20 +34,24 @@ int main(void)
 					putchar(i);
 					putchar(j);
 					if (m == '9' && n == '8' && i == '9' && j == '9')
-					{
-						putchar('\n');
-						return (0);
-					}
+						break;
 					putchar(',');
 					putchar(' ');
 					j++;
 				}
+				if (m == '9' && n == '8' && i == '9' && j == '9')
+					break;
 				i++;
 				j = '0';
 			}
+			if (m == '9' && n == '8' && i == '9' && j == '9')
+				break;
 			n++;
 		}
+		if (m == '9' && n == '8' && i == '9' && j == '9')
+			break;
 		n = '0';
 	}
+	putchar('\n');
 	return (0);
 }
