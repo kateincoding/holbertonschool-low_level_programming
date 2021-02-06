@@ -21,7 +21,7 @@ int main(void)
 				j = '0';
 			while (i <= '9')
 			{
-				while (j <= '9')
+				while (j <= '9' && j >= '0')
 				{
 					putchar(m);
 					putchar(n);
@@ -44,5 +44,4 @@ int main(void)
 		}
 		n = '0';
 	}
-	return (0);
 }
