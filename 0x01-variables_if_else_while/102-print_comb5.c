@@ -7,41 +7,35 @@
  */
 int main(void)
 {
-	int i, j, m, n;
+	int i;
+	int j;
+	int m;
+	int n;
 
-	i = j = n = '0';
-	for (m = '0'; m <= '9'; m++)
+	for (i = '0'; i <= '9'; i++)
 	{
-		while (n <= '9')
+		for (j = '0'; j <= '9'; j++)
 		{
-			i = m;
-			if (n < '9')
-				j = n + 1;
-			else
-				j = '0';
-			while (i <= '9')
+			n = j + 1;
+			for (m = i ; m <= '9' ; m++)
 			{
-				while (j <= '9' && j >= '0')
+				while (n <= '9')
 				{
-					putchar(m);
-					putchar(n);
-					putchar(' ');
 					putchar(i);
 					putchar(j);
-					if (m == '9' && n == '8' && i == '9' && j == '9')
-					{
-						putchar('\n');
-						return (0);
-					}
+					putchar(' ');
+					putchar(m);
+					putchar(n);
+					if (i == '9' && j == '8' && m == '9' && n == '9')
+						break;
 					putchar(',');
 					putchar(' ');
-					j++;
+					n++;
 				}
-				i++;
-				j = '0';
+				n = '0';
 			}
-			n++;
 		}
-		n = '0';
 	}
+	putchar('\n');
+	return (0);
 }
