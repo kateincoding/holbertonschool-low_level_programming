@@ -8,20 +8,20 @@
 int main(void)
 {
 	int i;
-	long b;
-	long n0;
 	long n1;
+	long n2;
+	long n3;
 
-	b = 0;
-	n0 = 1;
-	for (i = 3; i < 50; i++)
+	n1 = 0;
+	n2 = 1;
+	for (i = 1; i < 50; i++)
 	{
-		n1 = b + n0;
-		printf("%zu, ", n1);
-		b = n0;
-		n0 = n1;
+		n3 = n1 + n2;
+		printf("%zu, ", n3);
+		n1 = n2;
+		n2 = n3;
 	}
-	n1 = b + n0;
-	printf("%zu\n", n1);
+	n3 = n1 + n2;
+	printf("%zu\n", n3);
 	return (0);
 }
