@@ -14,8 +14,7 @@ int main(void)
 
 	b = 0;
 	n0 = 1;
-	printf("%zu, %zu, ", b, n0);
-	for (i = 3; i <= 49; i++)
+	for (i = 1; i <= 49; i++)
 	{
 		n1 = b + n0;
 		printf("%zu, ", n1);
