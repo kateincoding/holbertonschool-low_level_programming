@@ -11,7 +11,7 @@ int main(void)
 	char word[9] = {'H', 'o', 'l', 'b', 'e', 'r', 't', 'o', 'n'};
 
 	i = 0;
-	while (i <= 9)
+	while (i <= 8)
 		_putchar(word[i++]);
 	_putchar('\n');
 	return (0);
