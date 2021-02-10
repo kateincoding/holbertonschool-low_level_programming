@@ -9,20 +9,22 @@ int main(void)
 {
 	int i;
 
-	long double n1;
-	long double n2;
-	long double n3;
+	float n1;
+	float n2;
+	float n3;
 
-	n1 = 0;
-	n2 = 1;
-	for (i = 1; i < 98; i++)
+	n1 = 1;
+	n2 = 2;
+	printf("%.0f, ", n1);
+	printf("%.0f, ", n2);
+	for (i = 3; i < 98; i++)
 	{
 		n3 = n1 + n2;
-		printf("%.0Lf, ", n3);
+		printf("%.0f, ", n3);
 		n1 = n2;
 		n2 = n3;
 	}
 	n3 = n1 + n2;
-	printf("%.0Lf\n", n3);
+	printf("%.0f\n", n3);
 	return (0);
 }
