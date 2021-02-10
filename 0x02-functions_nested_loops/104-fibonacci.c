@@ -15,7 +15,7 @@ int main(void)
 
 	n1 = 0;
 	n2 = 1;
-	for (i = 3; i < 98; i++)
+	for (i = 1; i < 98; i++)
 	{
 		n3 = n1 + n2;
 		printf("%.0Lf, ", n3);
