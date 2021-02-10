@@ -17,14 +17,15 @@ int main(void)
 	n2 = 2;
 	printf("%.0f, ", n1);
 	printf("%.0f, ", n2);
-	for (i = 3; i < 98; i++)
+	for (i = 3; i <= 98; i++)
 	{
 		n3 = n1 + n2;
-		printf("%.0f, ", n3);
+		printf("%.0f", n3);
+			if (i != 98)
+				printf(", ");
 		n1 = n2;
 		n2 = n3;
 	}
-	n3 = n1 + n2;
-	printf("%.0f\n", n3);
+	printf("\n");
 	return (0);
 }
