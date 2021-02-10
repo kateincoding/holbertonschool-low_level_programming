@@ -1,13 +1,14 @@
 #include <stdio.h>
 
 /**
-*main - program that prints the first 50 numbers of fibonacci
+*main - program that prints the first 98 numbers of fibonacci
 *
 *Return: Always 0
 */
 int main(void)
 {
 	int i;
+
 	long double n1;
 	long double n2;
 	long double n3;
