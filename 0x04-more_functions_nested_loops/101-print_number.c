@@ -33,8 +33,13 @@ void print_number(int n)
 	factor = 1;
 	if (n < 0)
 	{
-		n = -n;
 		_putchar('-');
+		if (n == -2147483648)
+		{
+			_putchar('2');
+			n = 147483648;
+		}
+		n = -n;
 	}
 	length = length_number(n);
 	while (length > 1)
