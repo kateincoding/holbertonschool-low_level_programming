@@ -3,7 +3,7 @@
 /**
 *swap_int - swap input integers
 *@a: first int input
-*@b: second input 
+*@b: second input
 *Return: void
 */
 
