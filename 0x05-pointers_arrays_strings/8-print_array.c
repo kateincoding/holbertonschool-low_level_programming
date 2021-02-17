@@ -2,11 +2,11 @@
 #include <stdio.h>
 
 /**
-*_strlen - returns the length of a string
+*_strlenint - returns the length of a string
 *@s: array
 *Return: length
 */
-int _strlen(char *s)
+int _strlenint(int *s)
 {
 	int i = 0;
 
@@ -26,7 +26,7 @@ void print_array(int *a, int n)
 	int i;
 	int len;
 
-	len = _strlen(a)
+	len = _strlenint(a);
 	if (len >= n)
 	{
 		for (i = 0; i < n - 1; i++)
@@ -35,5 +35,5 @@ void print_array(int *a, int n)
 		}
 		printf("%d", a[i]);
 	}
-	printf("\n")
+	printf("\n");
 }
