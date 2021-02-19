@@ -11,6 +11,12 @@ char *cap_string(char *s)
 
 	i = 0;
 	while (s[i])
+		i++;
+	if (i == 0)
+		return (s);
+	else
+		i = 0;
+	while (s[i])
 	{
 		if (s[i] == ' ' || s[i] == '\t' || s[i] == '\n' ||
 				s[i] == ',' || s[i] == ';' || s[i] == '.' ||
