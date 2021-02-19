@@ -18,8 +18,7 @@ char *cap_string(char *s)
 				s[i] == '(' || s[i] == ')' || s[i] == '{' ||
 				s[i] == '}')
 		{
-			i++;
-			if (s[i] >= 'a' && s[i] <= 'z')
+			if (s[i + 1] >= 'a' && s[i + 1] <= 'z')
 				s[i] = s[i] + 'A' - 'a';
 		}
 		i++;
