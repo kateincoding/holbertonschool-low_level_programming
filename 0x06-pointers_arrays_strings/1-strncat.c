@@ -21,14 +21,14 @@ int _strlen(char *s)
 *@n: n quatity
 *Return: dest
 */
-char *_strncat(char *dest, char *src, int n);
+char *_strncat(char *dest, char *src, int n)
 {
-		size_t i;
-		size_t j;
+		int i;
+		int j;
 
-		i = _strlen(dest)
+		i = _strlen(dest);
 		j = 0;
-		while (s2[j] && j < n)
+		while (src[j] && j < n)
 			dest[i++] = src[j++];
 		dest[i] = '\0';
 		return (dest);
