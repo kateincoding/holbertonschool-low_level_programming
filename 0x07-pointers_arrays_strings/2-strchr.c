@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * _strchr: find the char in string
+ * _strchr - find the char in string
  * @s: string
  * @c: char
  * Return: pointer to the rest od string
@@ -20,7 +20,7 @@ char *_strchr(char *s, char c)
 		}
 		p = 0;
 		size_l++;
-	}else
+	} else
 		p = 0;
 	return (p);
 }
