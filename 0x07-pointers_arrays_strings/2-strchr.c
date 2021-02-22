@@ -8,7 +8,7 @@
  */
 char *_strchr(char *s, char c)
 {
-	int size_l = 0, i = 0;
+	int i = 0;
 	char *p;
 
 	while (s[i])
@@ -19,8 +19,7 @@ char *_strchr(char *s, char c)
 			break;
 		}
 		p = 0;
-		size_l++;
-	} else
-		p = 0;
+		i++;
+	}
 	return (p);
 }
