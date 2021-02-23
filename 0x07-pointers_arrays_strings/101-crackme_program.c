@@ -19,7 +19,7 @@ int main(void)
 	{
 		srand(time(0) + count);
 		pass_n = (rand() % (max_n - min_n + 1)) + min_n;
-		if ((count + pass_n) < 2772)
+		if ((count + pass_n) <= 2772)
 		{
 			printf("%c", pass_n);
 			count = count + pass_n;
