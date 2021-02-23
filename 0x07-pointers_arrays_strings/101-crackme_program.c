@@ -21,7 +21,7 @@ int main(void)
 		pass_n = (rand() % (max_n - min_n + 1)) + min_n;
 		if ((count + pass_n) <= 2772)
 		{
-			printf("%s", pass_n);
+			printf("%c", pass_n);
 			count = count + pass_n;
 		}
 		else
