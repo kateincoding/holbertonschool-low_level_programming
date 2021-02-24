@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * factorial = factorial of number n
+ * factorial - factorial of number n
  * @n: number
  * Return: factorial
  */
