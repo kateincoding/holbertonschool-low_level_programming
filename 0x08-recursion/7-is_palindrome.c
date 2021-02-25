@@ -20,7 +20,7 @@ int _strlen_recursion(char *s)
  */
 int review_palindrome(char *s, int length)
 {
-	if (*s != *(s + l)
+	if (*s != *(s + length))
 		return (0);
 	else if (*s == 0)
 		return (1);
@@ -34,8 +34,8 @@ int review_palindrome(char *s, int length)
  */
 int is_palindrome(char *s)
 {
-	int length = 0;
+	int length;
 
 	length = _strlen_recursion(s);
-	return (review_palindrome(a, length));
+	return (review_palindrome(s, length - 1));
 }
