@@ -17,10 +17,10 @@ int sqrt_modify(int n, int i)
 
 /**
  * _sqrt_recursion - search square root of n
- * @n = number
+ * @n: number
  * Return: square root of n
  */
 int _sqrt_recursion(int n)
 {
-	return (sqrt_modify(n,1));
+	return (sqrt_modify(n, 1));
 }
