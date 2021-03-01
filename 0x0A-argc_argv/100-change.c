@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 		if (cents[i] <= money)
 		{
 			result += money / cents[i];
-			money = money - (cents[i] * result);
+			money = money - (cents[i] * (money / cents[i]));
 		}
 		i++;
 	}
