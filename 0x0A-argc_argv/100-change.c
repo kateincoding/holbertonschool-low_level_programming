@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 	{
 		if (money < 0)
 		{
-			printf("0\n");
+			printf("0");
 			return (0);
 		}
 		if (money == 0)
