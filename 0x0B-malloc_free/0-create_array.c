@@ -1,6 +1,12 @@
 #include "holberton.h"
 #include <stdlib.h>
 
+/**
+* create_array - creates an array that initializes with c
+* @size: size of array
+* @c: character to initialize with
+* Return: pointer to the first character of array
+*/
 char *create_array(unsigned int size, char c)
 {
 	unsigned int i;
