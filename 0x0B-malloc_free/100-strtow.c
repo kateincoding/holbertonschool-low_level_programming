@@ -32,6 +32,8 @@ int _calculate_word_height(char *str)
 			word_height++;
 		}
 	}
+	if (word_height == 0)
+		return(NULL);
 	return (word_height + 1);
 }
 
