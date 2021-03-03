@@ -33,7 +33,7 @@ int _calculate_word_height(char *str)
 		}
 	}
 	if (word_height == 0)
-		return(0);
+		return (0);
 	return (word_height + 1);
 }
 
