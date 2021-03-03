@@ -46,12 +46,12 @@ char **strtow(char *str)
 	int i = 0, j = 0, k, l, word_height, word_width, flag_word = 0;
 	char **arr;
 
+	if (str == NULL || *str == '\0')
+		return (NULL);
 	word_height = _calculate_word_height(str);
-	/*Allocate space for row of arr*/
 	arr = malloc(sizeof(char *) * word_height);
 	if (arr == 0)
 		return (NULL);
-	/*allocates in a loop for each columns*/
 	while (str[i])
 	{
 		flag_word = 0;
