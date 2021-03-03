@@ -67,7 +67,7 @@ char **strtow(char *str)
 		if (flag_word == 1)
 		{
 			*(arr + j) = malloc((word_width + 1) * sizeof(char));
-			if (*(arr + j) == 0)
+			if (*(arr + j) == NULL || word_width == 0)
 			{
 				for (k = 0; k <= i; k++)
 					free(*(arr + k));
