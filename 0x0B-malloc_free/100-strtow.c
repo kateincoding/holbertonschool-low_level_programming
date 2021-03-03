@@ -33,7 +33,7 @@ int _calculate_word_height(char *str)
 		}
 	}
 	if (word_height == 0)
-		return(NULL);
+		return(0);
 	return (word_height + 1);
 }
 
@@ -52,7 +52,7 @@ char **strtow(char *str)
 		return (NULL);
 	word_height = _calculate_word_height(str);
 	arr = malloc(sizeof(char *) * word_height);
-	if (arr == 0)
+	if (arr == 0 || word_height == 0)
 		return (NULL);
 	while (str[i])
 	{
