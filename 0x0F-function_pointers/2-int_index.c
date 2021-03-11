@@ -5,6 +5,7 @@
  * @array: array
  * @size: number of element in the array
  * @cmp: pointer to function to compare values
+ * Return: index of character array , -1 error
  */
 int int_index(int *array, int size, int (*cmp)(int))
 {
@@ -15,7 +16,7 @@ int int_index(int *array, int size, int (*cmp)(int))
 		for (i = 0; i < size; i++)
 		{
 			if (cmp(array[i]))
-				return(i);
+				return (i);
 		}
 	}
 	return (-1);
