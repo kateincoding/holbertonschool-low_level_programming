@@ -1,23 +1,23 @@
-SECTION .data
+section .data
 	message db "Hello, Holberton", 10
 
-SECTION .text
+section .text
 	/*main fx for gcc*/
 	global main
 main:
 	/* 3arg: length of str */
-	mov edx, 17
+	mov rdx, 17
 	/*2arg: pointer to msg to write */
-	mov ecx, msg
+	mov rcx, msg
 	/*1st arg: file handle (stdout) */
-	mov ebx, 1
+	mov rbx, 1
 	/* system call number sys_write */
-	mov eax, 4
+	mov rax, 4
 	/* call kernel */
 	int 0x80
 
 	/*move 0 to rbx*/
-	mov ebx, 0
+	mov rbx, 0
 	 /*system call for exit */
-	mov eax, 1
+	mov rax, 1
 	int 0x80
