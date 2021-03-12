@@ -1,15 +1,23 @@
-ECTION .data
-msg:	 db "Hello, Holberton", 10 ;message, use 10 for new line
+SECTION .data
+	message db "Hello, Holberton", 10
 
-	SECTION .text
-	global main 		;declaration of main function for gcc
+SECTION .text
+	/*main fx for gcc*/
+	global main
 main:
-	mov rdx, 17 		;third argument: length of string
-	mov rcx, msg		;second argument: pointer to message to write
-	mov rbx, 1		;first argument: file handle (stdout)
-	mov rax, 4		;system call number (sys_write)
-	int 0x80		;call kernel (interrupt)
+	/* 3arg: length of str */
+	mov edx, 17
+	/*2arg: pointer to msg to write */
+	mov ecx, msg
+	/*1st arg: file handle (stdout) */
+	mov ebx, 1
+	/* system call number sys_write */
+	mov eax, 4
+	/* call kernel */
+	int 0x80
 
-	mov rbx, 0		;move 0 to rbx (exit code)
-	mov rax, 1		;system call for exit
-	int 0x80		;call kernel (interrupt)
+	/*move 0 to rbx*/
+	mov ebx, 0
+	 /*system call for exit */
+	mov eax, 1
+	int 0x80
