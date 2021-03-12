@@ -1,6 +1,12 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
 
+/**
+ * print_strings - fx that print strings
+ * @separator: separator char
+ * @n: number of arguments
+ * Return: args
+ */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
 	va_list args;
@@ -15,7 +21,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 			printf("(nil)");
 		else
 			printf("%s", str);
-		if ( i < (n - 1) && separator)
+		if (i < (n - 1) && separator)
 			printf("%s", separator);
 	}
 	printf("\n");
