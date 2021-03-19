@@ -16,20 +16,34 @@ int _strlen(const char *s)
 }
 
 /**
- * add_node - add a new node at the start of the linked list
+ * add_node_end - add a new node at the end of the linked list
  * @head: pointer to the first node
  * @str: content of the string for the first node
  * Return: pointer to the first node
  */
-list_t *add_node_end(list_t **head, const char *str);
+list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *end_node = malloc(sizeof(list_t));
+	list_t *end_node, *tmp;
 
-	if (end_node == 0)
-		return (0);
+	end_node = malloc(sizeof(list_t));
+
+	if (end_node == NULL)
+		return (NULL);
+	
 	end_node->str = strdup(str);
 	end_node->len = _strlen(str);
-	end_node->next = *head;
-	*head = end_node;
+	end_node->next = NULL;
+
+	if (*head == NULL)
+	{
+		*head = end_node;
+		return (*head);
+	}
+	tmp = *head;
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	tmp->next = end_node;
+		
 	return (end_node);
+
 }
