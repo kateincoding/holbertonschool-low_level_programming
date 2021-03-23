@@ -10,16 +10,19 @@
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	listint_t *tmp_head, *prev_node, *new_node;
-	unsigned int counter;
+	unsigned int counter = 0;
 
 	if (head == NULL || *head == NULL)
 		return (NULL);
+	/* only creating a new pointer, then we allocate and linked to the LL*/
+	new_node = malloc(sizeof(listint_t));
+	if (new_node == NULL)
+		return (NULL);
+	new_node->n = n;
+	new_node->next = NULL;
+	/* CASE: create a node at the start */
 	if (idx == 0)
 	{
-		new_node = malloc(sizeof(listint_t));
-		if (new_node == NULL)
-			return (NULL);
-		new_node->n = n;
 		new_node->next = *head;
 		*head = new_node;
 		return (new_node);
@@ -29,10 +32,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	{
 		if (counter == idx)
 		{
-			new_node = malloc(sizeof(listint_t));
-			if (new_node == NULL)
-				return (NULL);
-			new_node->n = n;
 			new_node->next = tmp_head;
 			prev_node->next = new_node;
 			return (new_node);
@@ -41,5 +40,13 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		tmp_head = tmp_head->next;
 		counter++;
 	}
+	/*case: add a node at the final */
+	if (counter == idx)
+	{
+		new_node->next = NULL;
+		prev_node->next = new_node;
+		return (new_node);
+	}
+	free(new_node);
 	return (NULL);
 }
