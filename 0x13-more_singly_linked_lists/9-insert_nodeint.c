@@ -11,6 +11,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	listint_t *tmp_head, *prev_node, *new_node;
 	unsigned int counter = 0;
+
 	if (*head == NULL && idx > 0)
 		return (NULL);
 	/* only creating a new pointer, then we allocate and linked to the LL*/
