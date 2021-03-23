@@ -8,7 +8,6 @@
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
-	
 	unsigned int counter = 0;
 	listint_t *prev_node, *tmp_head;
 
@@ -20,7 +19,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		tmp_head = (*head)->next;
 		free(*head);
 		*head = tmp_head;
-		return(1);
+		return (1);
 	}
 	/* in the next case, we need to create 2 tmp nodes */
 	/* one for run over the LL (tmp_head); other: prev_node */
@@ -31,10 +30,10 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		{
 			prev_node->next = (tmp_head->next);
 			free(tmp_head);
-			return(1);
+			return (1);
 		}
 		prev_node = tmp_head;
-		tmp_head=tmp_head->next;
+		tmp_head = tmp_head->next;
 		counter++;
 	}
 	return (-1);
