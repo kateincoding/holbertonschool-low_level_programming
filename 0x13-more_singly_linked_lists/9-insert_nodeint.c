@@ -43,7 +43,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	/*case: add a node at the final */
 	if (counter == idx)
 	{
-		new_node->next = NULL;
 		prev_node->next = new_node;
 		return (new_node);
 	}
