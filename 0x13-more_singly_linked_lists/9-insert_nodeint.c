@@ -1,5 +1,12 @@
 #include "lists.h"
 
+/**
+ * insert_nodeint_at_index - fx to add a node
+ * @head: head of LL
+ * @idx: index to add the new node
+ * @n: value of new pointer
+ * Return: new node
+ */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	listint_t *tmp, *tmp2, *new_node;
