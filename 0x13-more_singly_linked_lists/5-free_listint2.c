@@ -7,11 +7,9 @@
  */
 void free_listint2(listint_t **head)
 {
-	if (*head == NULL || head == NULL)
-	{
-		free(*head);
-		return;
-	}
+	if (*head == NULL)
+		return (0);
 	free_listint2(&(*head)->next);
+	free (*head);
 	*head = NULL;
 }
