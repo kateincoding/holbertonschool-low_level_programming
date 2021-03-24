@@ -17,7 +17,6 @@ listint_t *find_listint_loop(listint_t *head)
 	fast = head->next;
 	while (head != NULL)
 	{
-		printf("[%p] %d\n", (void *)head, head->n);
 		head = head->next;
 		counter++;
 
