@@ -29,7 +29,6 @@ unsigned int binary_to_decimal(const char *b, unsigned int i)
 	{
 		if (b[j] != '0' && b[j] != '1')
 		{
-			b = '\0';
 			return (0);
 		}
 	}
