@@ -15,14 +15,14 @@ int _strlen(const char *s)
 }
 
 /**
- * binary_to_decimal - function that converts a char binary to int
+ * binary_to_uint - function that converts a char binary to int
  * @b: binary in char
  * @i: marker
  * Return: number int; 0 if b is not binary so b is NULL
  **/
-unsigned int binary_to_decimal(const char *b, unsigned int i)
+unsigned int binary_to_uint(const char *b)
 {
-	unsigned int j = 0, len = _strlen(b);
+	unsigned int dec = 0, i = 0, res = 0, j = 0, len = _strlen(b);
 
 	/*condition to check if it is binary or not*/
 	for (j = 0; b[j] != '\0'; j++)
@@ -33,17 +33,11 @@ unsigned int binary_to_decimal(const char *b, unsigned int i)
 		}
 	}
 	/*condition to stop recursion*/
-	if (i == len - 1)
-		return (b[i] - '0');
-	return (((b[i] - '0') << (len - i - 1)) + binary_to_decimal(b, i + 1));
-}
-
-/**
- * binary_to_uint - function that converts a char binary to int
- * @b: binary in char
- * Return: number int; 0 if b is not binary so b is NULL
- **/
-unsigned int binary_to_uint(const char *b)
-{
-	return (binary_to_decimal(b, 0));
+	while (i <= len - 1)
+	{
+		dec = (b[i] - '0') << (len - i - 1);
+ 		res = dec + res;
+		i++;
+	}
+	return (res);
 }
