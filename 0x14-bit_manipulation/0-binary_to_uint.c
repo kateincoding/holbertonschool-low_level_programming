@@ -9,7 +9,7 @@ unsigned int binary_to_uint(const char *b)
 {
 	unsigned int dec, i = 0, res = 0, len;
 
-	if (!b)
+	if (b == NULL)
 		return (0);
 	/*condition to check if it is binary or not*/
 	for (len = 0; b[len] != '\0'; len++)
