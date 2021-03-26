@@ -7,6 +7,9 @@
  */
 void print_recursion(unsigned long n)
 {
+	if (n == 0)
+		return (0);
+
 	print_recursion(n >> 1);
 	_putchar((n & 1) + '0');
 }
