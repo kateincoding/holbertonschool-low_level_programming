@@ -7,9 +7,9 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int dec, i = 0, res = 0, len;
+	unsigned int dec = 0, i = 0, res = 0, len;
 
-	if (b == NULL || "")
+	if (b == NULL || b[0] == '\0')
 		return (0);
 	/*condition to check if it is binary or not*/
 	for (len = 0; b[len] != '\0'; len++)
@@ -18,11 +18,11 @@ unsigned int binary_to_uint(const char *b)
 			return (0);
 	}
 	len = len - 1;
-	/*condition to stop recursion*/
+	/*ehil << (len - i)= mmult 2^2 */
 	while (i <= len)
 	{
 		dec = (b[i] - '0') << (len - i);
-		res = dec | res;
+		res = dec + res;
 		i++;
 	}
 	return (res);
