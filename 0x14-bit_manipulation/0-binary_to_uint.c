@@ -24,6 +24,8 @@ unsigned int binary_to_uint(const char *b)
 {
 	unsigned int dec = 0, i = 0, res = 0, j = 0, len = _strlen(b);
 
+	if (b == 0)
+		return (0);
 	/*condition to check if it is binary or not*/
 	for (j = 0; b[j] != '\0'; j++)
 	{
