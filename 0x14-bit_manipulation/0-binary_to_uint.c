@@ -17,7 +17,6 @@ unsigned int binary_to_uint(const char *b)
 		if (b[len] != '0' && b[len] != '1')
 			return (0);
 	}
-	*
 	len = len - 1;
 	/*condition to stop recursion*/
 	while (i <= len)
