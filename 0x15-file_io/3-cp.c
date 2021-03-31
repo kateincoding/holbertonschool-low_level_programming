@@ -42,17 +42,19 @@ int main(int argc, char **argv)
 	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_APPEND | O_TRUNC, 0664);
 	if (fd_to == -1)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
-
-	from_copy = read(fd_from, buffer, 1024);
+	/* read a copy with a buffer size of 1024 */
+	while ((from_copy = read(fd_from, buffer, 1024)) > 0)
+	{
+		to_copy = write(fd_to, buffer, from_copy);
+		if (from_copy != to_copy)
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+	}
 	if (from_copy == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-
-	to_copy = write(fd_to, buffer, from_copy);
-	if (from_copy != to_copy)
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+	/*clode fd */
 	c1 = close(fd_from);
 	if (c1 == -1)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from), exit(100);
