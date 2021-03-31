@@ -23,7 +23,10 @@ int append_text_to_file(const char *filename, char *text_content)
 {
 	int fd, n_print, len = 0;
 
-	fd = open(filename, 0_WRONLY | O_APPEND);
+	if (filename == 0)
+		return (-1);
+
+	fd = open(filename, O_WRONLY | O_APPEND);
 
 	if (fd == -1)
 		return (-1);
