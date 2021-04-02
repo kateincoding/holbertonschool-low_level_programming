@@ -71,9 +71,24 @@ void print_data(char *h)
 		printf("<unknown: %02hx is not a elf data>\n", h[4])
 }
 
-void print_version((char *h)
+void print_version(char *h)
 {
 	
+}
+
+void print_os_abi(char *h)
+{
+}
+
+void print_abiv(char *h)
+{
+}
+void print_type(char *h, unsigned int bits64);
+{
+}
+
+void print_entry_point_address(char *h, unsigned int bits64);
+{
 }
 
 int main(int argc, char **argv)
