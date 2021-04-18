@@ -9,10 +9,11 @@
  */
 int _strlen(char *arr)
 {
-    int i = 0;
-    while (arr[i])
+	int i = 0;
+
+	while (arr[i])
 	i++;
-    return i;
+	return (i);
 }
 
 /**
@@ -31,7 +32,7 @@ char *reverse(char *dest, char *source, int len)
 		dest[i++] = source[len];
 	}
 	dest[i] = '\0';
-	return(dest);
+	return (dest);
 }
 
 /**
@@ -74,10 +75,10 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		i++;
 	}
 	/*printf("result = %s\n", rev_result);*/
-	if ( i > (size_r - 1))
-		return(0);
+	if (i > (size_r - 1))
+		return (0);
 
-	while (i >= 0 )
+	while (i >= 0)
 		r[j++] = rev_result[--i];
 	r[j] = '\0';
 	return (r);
