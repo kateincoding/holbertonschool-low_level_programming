@@ -1,14 +1,37 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+
 /**
- * arrayLen - length of array
+ * _strlen - length of array
  * @arr: array
  * Return: length
  */
-int arrayLen(char *arr)
+int _strlen(char *arr)
 {
     int i = 0;
     while (arr[i])
 	i++;
     return i;
+}
+
+/**
+ * reverse - reverse source and write it in dest
+ * @dest: destiny
+ * @source: source
+ * Return: pointer to dest
+ */
+char *reverse(char *dest, char *source, int len)
+{
+	int i = 0;
+
+	dest = malloc(sizeof(char) * len + 1);
+	while (--len >= 0)
+	{
+		dest[i++] = source[len];
+	}
+	dest[i] = '\0';
+	return(dest);
 }
 
 /**
@@ -24,57 +47,38 @@ int arrayLen(char *arr)
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
 	int sum;
-	int len1 = arrayLen(n1);
-	int len2 = arrayLen(n2);
+	int len1 = _strlen(n1);
+	int len2 = _strlen(n2);
 	int maxlen = (len1 > len2) ? len1 : len2;
 	int minlen = (len1 > len2) ? len2 : len1;
+	char *rev1;
+	char *rev2;
+	char rev_result[maxlen + 2];
+	int i = 0, j = 0;
+	int result = 0;
 	int lleva = 0;
-	int i;
-	char tmp;
 
-	if ( maxlen <= size_r)
+	rev1 = reverse(rev1, n1, len1);
+	rev2 = reverse(rev2, n2, len2);
+	while (i < (maxlen + 2))
 	{
-		for(i = 0; r[maxlen + i]; i++)
-			r[maxlen + i] = '\0';
+		if (rev1[i] == '\0')
+			rev1[i] = '0';
+		if (rev2[i] == '\0')
+			rev2[i] = '0';
+		result = (rev1[i] - '0') + (rev2[i] - '0') + lleva;
+		if (result == 0)
+			break;
+		lleva = result / 10;
+		rev_result[i] = (result % 10) + '0';
+		i++;
 	}
-	else
+	/*printf("result = %s\n", rev_result);*/
+	if ( i > (size_r - 1))
 		return(0);
-	for (i = 1; i < minlen; i++) 
-	{
-		sum = (n1[len1 - i] - 48) + (n2[len2 - i] - 48) + lleva;
-		lleva = sum / 10; //decenas
-		sum = sum % 10; //unidades
-		r[maxlen - i] = sum + '0';
-	}
-	
-	if (maxlen == len1)
-	{
-		while (i < maxlen)
-		{
-			sum = (n1[len1 - i] - 48) + lleva;
-			lleva = sum / 10; //decenas
-			sum = sum % 10; //unidades
-                	r[size_r - i] = sum + '0';
-	
-		}
-	}
-	else if (maxlen == len2)
-		while (i < maxlen)
-		{
-			sum = (n2[len2 - i] - 48) + lleva;
-			lleva = sum / 10; //decenas
-			sum = sum % 10; //unidades
-			r[size_r - i] = sum + '0';
-		}
-	if (lleva > 0 && maxlen == size_r)
-		return (0);
-	else if (lleva > 0 && maxlen < size_r)
-		for (i = 0; r[i]; i++)
-		{
-			tmp = r[maxlen + i];
-			r[maxlen + i] = r[maxlen + i - 1];
-			r[maxlen + i + 1] = tmp;
-		}
+
+	while (i >= 0 )
+		r[j++] = rev_result[--i];
+	r[j] = '\0';
 	return (r);
-	
 }
