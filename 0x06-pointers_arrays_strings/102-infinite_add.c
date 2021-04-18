@@ -20,13 +20,13 @@ int _strlen(char *arr)
  * reverse - reverse source and write it in dest
  * @dest: destiny
  * @source: source
+ * @len: len of destiny
  * Return: pointer to dest
  */
 char *reverse(char *dest, char *source, int len)
 {
 	int i = 0;
 
-	dest = malloc(sizeof(char) * len + 1);
 	while (--len >= 0)
 	{
 		dest[i++] = source[len];
@@ -47,18 +47,25 @@ char *reverse(char *dest, char *source, int len)
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int sum;
 	int len1 = _strlen(n1);
 	int len2 = _strlen(n2);
 	int maxlen = (len1 > len2) ? len1 : len2;
-	int minlen = (len1 > len2) ? len2 : len1;
 	char *rev1;
 	char *rev2;
-	char rev_result[maxlen + 2];
+	char *rev_result;
 	int i = 0, j = 0;
 	int result = 0;
 	int lleva = 0;
 
+	rev1 = malloc(sizeof(char) * len1 + 1);
+	if (rev1 == 0)
+		return (0);
+	rev2 = malloc(sizeof(char) * len2 + 1);
+	if (rev2 == 0)
+		return (0);
+	rev_result = malloc(maxlen + 2);
+	if (rev_result == 0)
+		return (0);
 	rev1 = reverse(rev1, n1, len1);
 	rev2 = reverse(rev2, n2, len2);
 	while (i < (maxlen + 2))
@@ -74,10 +81,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		rev_result[i] = (result % 10) + '0';
 		i++;
 	}
-	/*printf("result = %s\n", rev_result);*/
 	if (i > (size_r - 1))
 		return (0);
-
 	while (i >= 0)
 		r[j++] = rev_result[--i];
 	r[j] = '\0';
