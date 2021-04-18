@@ -25,10 +25,7 @@ void print_buffer(char *b, int size)
 		{
 			if (i < size)
 			{
-				if (b[i] == '\0' || b[i] < 10 || b[i] >= 127)
-					printf("00");
-				else
-					printf("%02x", b[i]);
+				printf("%02x", b[i]);
 			}
 			else
 				printf("  ");
