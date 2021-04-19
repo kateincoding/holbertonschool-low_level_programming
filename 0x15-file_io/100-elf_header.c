@@ -30,7 +30,7 @@ void print_magic(char *h)
 
 	for (i = 0; i < 15; i++)
 		printf("%02x ", (unsigned int)h[i]);
-	printf("%02x", (unisgned int)h[i]);
+	printf("%02x", (unsigned int)h[i]);
 
 	printf("\n");
 }
@@ -68,7 +68,7 @@ void print_data(char *h)
 	else if (h[5] == 2)
 		printf("big endian\n");
 	else
-		printf("<unknown: %02hx is not a elf data>\n", h[4])
+		printf("<unknown: %02hx is not a elf data>\n", h[4]);
 }
 
 void print_version(char *h)
@@ -135,7 +135,7 @@ void print_type(char *h, unsigned int bits64)
 {
 	int xtype = 17;
 
-	(void) x64;
+	(void) bits64;
 
 	if (h[5] == 1)
 		xtype = 16;
@@ -170,7 +170,7 @@ int count = 27, i;
 
 	printf("  %-35s0x", "Entry point address:");
 
-	if (x64 == 1)
+	if (bits64 == 1)
 		count = 31;
 
 	if (h[5] == 1)
@@ -241,7 +241,7 @@ int main(int argc, char **argv)
 	print_entry_point_address(h, bits64);
 
 	/*close fd of elf*/
-	close_elf = close(fdelf);
+	close_elf = close(fd_elf);
 	if (close_elf == -1)
 		dprintf(STDERR_FILENO, "Error closing FD Elf\n"), exit(98);
 	return(0);
