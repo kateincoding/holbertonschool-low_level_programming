@@ -71,6 +71,11 @@ void print_data(char *h)
 		printf("<unknown: %02hx is not a elf data>\n", h[4]);
 }
 
+/**
+ * print_version - print elf data
+ * @h: header
+ * Return: void
+ */
 void print_version(char *h)
 {
 		printf("  %-35s", "Version:");
@@ -84,6 +89,11 @@ void print_version(char *h)
 	}
 }
 
+/**
+ * print_os_abi - print elf data
+ * @h: header
+ * Return: void
+ */
 void print_os_abi(char *h)
 {
 	printf("  %-35s", "OS/ABI:");
@@ -126,11 +136,23 @@ void print_os_abi(char *h)
 		printf("<unknown: %02hx>\n", h[7]);
 }
 
+/**
+ * print_abiv - print elf data
+ * @h: header
+ * Return: void
+ */
 void print_abiv(char *h)
 {
 	printf("  %-35s", "ABI Version:");
 	printf("%d\n", h[8]);
 }
+
+/**
+ * print_type - print elf data
+ * @h: header
+ * @bitss64: if afk
+ * Return: void
+ */
 void print_type(char *h, unsigned int bits64)
 {
 	int xtype = 17;
@@ -164,6 +186,12 @@ void print_type(char *h, unsigned int bits64)
 	}
 }
 
+/**
+ * print_entry_point_address - print antre point
+ * @h: var of arrays
+ * @bits42: you can declare fx for 64 bit
+ * Return void
+ */
 void print_entry_point_address(char *h, unsigned int bits64)
 {
 int count = 27, i;
@@ -207,6 +235,12 @@ int count = 27, i;
 	printf("\n");
 }
 
+/**
+ * main - entry point
+ * @argc: number of argv
+ * @argv: argv
+ * Return: 0
+ */
 int main(int argc, char **argv)
 {
 	int fd_elf, r_elf, close_elf, bits64 = 0;
