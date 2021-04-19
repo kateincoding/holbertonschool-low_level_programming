@@ -278,5 +278,5 @@ int main(int argc, char **argv)
 	close_elf = close(fd_elf);
 	if (close_elf == -1)
 		dprintf(STDERR_FILENO, "Error closing FD Elf\n"), exit(98);
-	return(0);
+	return (0);
 }
