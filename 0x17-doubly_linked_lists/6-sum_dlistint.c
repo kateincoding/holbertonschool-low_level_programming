@@ -1,5 +1,10 @@
 #include "lists.h"
 
+/**
+ * sum_dlistint - sum all the nodes of double linked list
+ *
+ * Return: Always EXIT_SUCCESS.
+ */
 int sum_dlistint(dlistint_t *head)
 {
     int sum = 0;
