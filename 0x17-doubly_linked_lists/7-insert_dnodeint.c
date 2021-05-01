@@ -15,14 +15,19 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	if (!h)
 		return (NULL);
-
+	/* checking the case if idx is between range od nodes */
+	while (tmp)
+		tmp = tmp->next, count++;
+	if (idx > count)
+		return (NULL);
+	/* only add if you need to create */
 	new_node = malloc(sizeof(dlistint_t));
 	if (!new_node)
 		return (NULL);
-
 	/*initialize the new_node*/
 	new_node->n = n;
-	/*case1: double linked list is null */
+
+	/*case1: idx = 0 , create a node at initial */
 	if (idx == 0)
 	{
 		new_node->prev = NULL;
@@ -33,22 +38,16 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		return (new_node);
 	}
 	/* case2: search the index until the last node*/
-	while (tmp)
+	tmp = *h;
+	for (count = 0; count < idx; count++)
 	{
-		if (count == idx)
-		{
-			new_node->prev = prev_node;
-			new_node->next = tmp;
-			prev_node->next = new_node;
-			tmp->prev = new_node;
-			return (new_node);
-		}
 		prev_node = tmp;
 		tmp = tmp->next;
-		count++;
 	}
-	/* case 3: not exist */
-	/* allways will be the case: if (idx >= count) */
-	free(new_node);
-	return (NULL);
+	/* link the nodes */
+	new_node->prev = prev_node;
+	new_node->next = tmp;
+	prev_node->next = new_node;
+	tmp->prev = new_node;
+	return (new_node);
 }
