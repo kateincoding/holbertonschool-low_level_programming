@@ -11,7 +11,7 @@
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *new_node, *prev_node, *tmp = *h;
-	int count = 0;
+	unsigned int count = 0;
 
 	if (!h)
 		return (NULL);
@@ -48,6 +48,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		count++;
 	}
 	/* case 3: not exist */
-	if (idx >= count)
-		return (NULL);
+	/* allways will be the case: if (idx >= count) */
+	return (NULL);
 }
