@@ -9,7 +9,7 @@
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	int counter = 0;
+	unsigned int counter = 0;
 	dlistint_t *head_tmp, *prev_node;
 
 	if (!head || !(*head))
@@ -43,6 +43,6 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		head_tmp = head_tmp->next;
 		counter++;
 	}
-	if (index >= counter)
-		return (-1);
+	/* if index >= counter because the while ends, the return is -1 */
+	return (-1);
 }
