@@ -49,5 +49,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	}
 	/* case 3: not exist */
 	/* allways will be the case: if (idx >= count) */
+	free(new_node);
 	return (NULL);
 }
