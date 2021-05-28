@@ -12,9 +12,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int idx = 0;
 	hash_node_t *hash_node = NULL, *new_node = NULL;
-	char *new_value, *new_key;
+	char *new_value = NULL, *new_key = NULL;
 
-	if (!key || !key[0] || !ht)
+	if (!ht || !(ht->size) || !key || !key[0])
 		return (0);
 
 	idx = key_index((const unsigned char *)key, ht->size);
