@@ -1,5 +1,11 @@
 #include "hash_tables.h"
 
+/**
+ * hash_table_delete - delete all the hash table
+ * @ht: hash table
+ *
+ * Return: void
+ */
 void hash_table_delete(hash_table_t *ht)
 {
 	unsigned int i = 0;
