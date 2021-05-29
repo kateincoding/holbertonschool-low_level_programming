@@ -94,7 +94,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	while (hash_node)
 	{
 		if (!strcmp(hash_node->key, key))
-			return(free(hash_node->value), hash_node->value = new_value, 1);
+			return (free(hash_node->value), hash_node->value = new_value, 1);
 		hash_node = hash_node->next;
 	}
 	new_node = malloc(sizeof(shash_node_t));
@@ -147,24 +147,24 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
  */
 void shash_table_print(const shash_table_t *ht)
 {
-	shash_node_t *tmp;
 	int flag = 0;
+	shash_node_t *actual_node = NULL;
 
-	if (ht == NULL || ht->array == NULL)
+	if (!ht || !(ht->array))
 		return;
+	actual_node = ht->shead;
 	printf("{");
-	tmp = ht->shead;
-
-	while (tmp != NULL)
+	while (actual_node)
 	{
 		if (flag == 1)
 			printf(", ");
-		printf("'%s': '%s'", tmp->key, tmp->value);
+		printf("'%s': '%s'", actual_node->key, actual_node->value);
+		actual_node = actual_node->snext;
 		flag = 1;
-		tmp = tmp->snext;
 	}
 	printf("}\n");
 }
+
 /**
  * shash_table_print_rev - print a hash table from the double linked list
  * @ht: hash table
@@ -173,21 +173,20 @@ void shash_table_print(const shash_table_t *ht)
  */
 void shash_table_print_rev(const shash_table_t *ht)
 {
-	shash_node_t *tmp;
 	int flag = 0;
+	shash_node_t *actual_node = NULL;
 
-	if (ht == NULL || ht->array == NULL)
+	if (!ht || !(ht->array))
 		return;
+	actual_node = ht->stail;
 	printf("{");
-	tmp = ht->stail;
-
-	while (tmp != NULL)
+	while (actual_node)
 	{
 		if (flag == 1)
 			printf(", ");
-		printf("'%s': '%s'", tmp->key, tmp->value);
+		printf("'%s': '%s'", actual_node->key, actual_node->value);
+		actual_node = actual_node->sprev;
 		flag = 1;
-		tmp = tmp->sprev;
 	}
 	printf("}\n");
 }
