@@ -39,35 +39,36 @@ shash_table_t *shash_table_create(unsigned long int size)
  *
  * Return: void
  */
-void add_sorted_node(shash_table_t *ht, shash_node_t *new_node)
+void add_sorted_node(shash_table_t *ht, shash_node_t *hn)
 {
-	shash_node_t *next_shash = NULL, *shash_node = NULL;
+	shash_node_t *tmp;
 
-	/* case 1: add the first node or first at the start of the list */
-	if (!ht->shead || strcmp(new_node->key, ht->shead->key) <= 0)
-	{
-		new_node->snext = ht->shead;
-		if (ht->shead)
-			ht->shead->sprev = new_node;
-		if (!(ht->stail))
-			ht->stail = new_node;
-		ht->shead = new_node;
-		return;
-	}
-	/* step2: go to the node of array[idx] */
-	shash_node = ht->shead;
-	next_shash = shash_node->snext;
-	while ((next_shash) && (strcmp(new_node->key, next_shash->key) > 0))
-		shash_node = shash_node->snext, next_shash = next_shash->snext;
-	/* locate the node and add */
-	new_node->snext = next_shash;
-	new_node->sprev = shash_node;
+    if (ht->shead == NULL && ht->stail == NULL)
+    {
+        ht->shead = hn;
+        ht->stail = hn;
+        return;
+    }
+    tmp = ht->shead;
+    while (tmp != NULL)
+    {
+        if (strcmp(hn->key, tmp->key) < 0)
+        {
+            hn->snext = tmp;
+            hn->sprev = tmp->sprev;
+            tmp->sprev = hn;
+            if (hn->sprev != NULL)
+                hn->sprev->snext = hn;
+            else
+                ht->shead = hn;
+            return;
+        }
+        tmp = tmp->snext;
+    }
 
-	shash_node->snext = new_node;
-	if (next_shash)
-		next_shash->sprev = new_node;
-	else
-		ht->stail = new_node;
+    hn->sprev = ht->stail;
+    ht->stail->snext = hn;
+    ht->stail = hn;
 }
 
 /**
