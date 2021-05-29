@@ -84,7 +84,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	shash_node_t *hash_node = NULL, *new_node = NULL;
 	char *new_value = NULL, *new_key = NULL;
 
-	if (!ht || !(ht->array) || !key || !key[0])
+	if (!ht || !(ht->array) || !key || !key[0] || value == NULL)
 		return (0);
 	idx = key_index((unsigned char *)key, ht->size);
 	new_value = strdup(value);
@@ -160,7 +160,7 @@ void shash_table_print(const shash_table_t *ht)
 	int flag = 0;
 	shash_node_t *actual_node = ht->shead;
 
-	if (!ht || !(ht->shead))
+	if (!ht || !(ht->array))
 		return;
 
 	printf("{");
@@ -186,7 +186,7 @@ void shash_table_print_rev(const shash_table_t *ht)
 	int flag = 0;
 	shash_node_t *actual_node = ht->stail;
 
-	if (!ht || !(ht->stail))
+	if (!ht || !(ht->array))
 		return;
 
 	printf("{");
@@ -212,7 +212,7 @@ void shash_table_delete(shash_table_t *ht)
 	unsigned int i = 0;
 	shash_node_t *actual_node = NULL, *next_node = NULL;
 
-	if (!ht || !(ht->shead))
+	if (!ht || !(ht->array))
 		return;
 
 	while (i < ht->size)
