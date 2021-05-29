@@ -176,7 +176,7 @@ void shash_table_print(const shash_table_t *ht)
 }
 
 /**
- * shash_table_print - print a hash table from the double linked list
+ * shash_table_print_rev - print a hash table from the double linked list
  * @ht: hash table
  *
  * Return: void
