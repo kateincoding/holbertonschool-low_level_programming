@@ -7,7 +7,7 @@ SRC			=	main.c holberton.c
 
 CC			=	gcc
 CFLAGS		=	-Wall -Werror -Wextra -pedantic
-RM			=	rm
+RM			=	rm -f
 
 #************************ DEPS COMPILATION *************************
 
