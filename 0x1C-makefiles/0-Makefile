@@ -1,0 +1,14 @@
+NAME		=	holberton
+#***************** SRC ********************#
+
+SRC			=	holberton.c 
+
+#***************** DEPS *******************#
+
+CC			=	gcc
+CFLAGS		=	-Wall -Wextra -Werror
+
+#************************ MAIN COMPILATION *************************
+
+all		:		
+				$(CC) $(CFLAGS) $(SRC) main.c -o $(NAME)
