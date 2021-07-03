@@ -16,7 +16,7 @@ OBJ = $(SRC:%.c=%.o)
 #************************ MAIN COMPILATION *************************
 
 all		:		m.h $(OBJ)
-				$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+				$(CC) $(OBJ) -o $(NAME)
 
 clean	:
 				$(RM) *~ $(NAME)
@@ -24,7 +24,7 @@ clean	:
 oclean	:
 				$(RM) $(OBJ)
 
-fclean	:		clean oclean
+fclean	:		clean oclean 
 
 re		:		oclean all
 
