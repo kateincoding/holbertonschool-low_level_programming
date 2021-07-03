@@ -1,0 +1,29 @@
+NAME		=	holberton
+#***************** SRC ********************#
+
+SRC			=	main.c holberton.c 
+
+#***************** DEPS *******************#
+
+CC			=	gcc
+CFLAGS		=	-Wall -Werror -Wextra -pedantic
+RM			=	rm
+
+#************************ DEPS COMPILATION *************************
+
+OBJ = $(SRC:%.c=%.o)
+
+#************************ MAIN COMPILATION *************************
+
+all		:		m.h $(OBJ)
+				$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+clean	:
+				$(RM) *~ $(NAME)
+
+oclean	:
+				$(RM) $(OBJ)
+
+fclean	:		clean oclean
+
+re		:		oclean all
