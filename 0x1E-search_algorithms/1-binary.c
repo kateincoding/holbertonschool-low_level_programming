@@ -8,11 +8,11 @@
  */
 void print_scope(int *array, int left, int right)
 {
-  int i;
+	int i;
 
-  for (i = left; i < right; i++)
-    printf("%d, ", array[i]);
-  printf("%d\n", array[i]);
+	for (i = left; i < right; i++)
+		printf("%d, ", array[i]);
+	printf("%d\n", array[i]);
 }
 
 /**
@@ -23,26 +23,26 @@ void print_scope(int *array, int left, int right)
  */
 int binary_search(int *array, size_t size, int value)
 {
-  int left;
-  int right;
-  int mid;
+	int left;
+	int right;
+	int mid;
 
-  if (!array)
-    return (-1);
+	if (!array)
+		return (-1);
 
-  left = 0;
-  right= size - 1;
-  while (left <= right)
-  {
-    printf("Searching in array: ");
-    print_scope(array, left, right);
-    mid = (left + right)/2;
-    if (array[mid] == value)
-      return (mid);
-    else if (value < array[mid])
-      right = mid - 1;
-    else
-      left = mid +1;
-  }
-  return (-1);
+	left = 0;
+	right = size - 1;
+	while (left <= right)
+	{
+		printf("Searching in array: ");
+		print_scope(array, left, right);
+		mid = (left + right) /2;
+		if (array[mid] == value)
+			return (mid);
+		else if (value < array[mid])
+			right = mid - 1;
+		else
+			left = mid + 1;
+	}
+	return (-1);
 }
