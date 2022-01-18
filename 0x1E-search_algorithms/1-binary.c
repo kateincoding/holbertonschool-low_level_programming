@@ -1,19 +1,26 @@
 #include "search_algos.h"
 
-/*
-**
-*/
-void print_scope(int *array, int min, int max)
+/**
+ * print_scope - Print the scope of the array to search
+ * @array: pointer to array
+ * @left: left side to start the search
+ * @right: last value to check in the array
+ */
+void print_scope(int *array, int left, int right)
 {
   int i;
 
-  for (i = min; i < max; i++)
+  for (i = left; i < right; i++)
     printf("%d, ", array[i]);
   printf("%d\n", array[i]);
 }
-/*
-**
-*/
+
+/**
+ * binary_search - binary search alg
+ * @array: pointer to array
+ * @size: size of the array
+ * @value: value to search in the array
+ */
 int binary_search(int *array, size_t size, int value)
 {
   int left;
