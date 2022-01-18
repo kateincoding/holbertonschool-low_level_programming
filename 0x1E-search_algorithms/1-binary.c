@@ -5,6 +5,7 @@
  * @array: pointer to array
  * @left: left side to start the search
  * @right: last value to check in the array
+ * Return: void
  */
 void print_scope(int *array, int left, int right)
 {
@@ -20,6 +21,7 @@ void print_scope(int *array, int left, int right)
  * @array: pointer to array
  * @size: size of the array
  * @value: value to search in the array
+ * Return: index
  */
 int binary_search(int *array, size_t size, int value)
 {
