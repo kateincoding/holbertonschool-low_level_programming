@@ -20,7 +20,7 @@ int jump_search(int *array, size_t size, int value)
 	step = sqrt(size);
 	/* Finding the block where element is present */
 	i = 0;
-	while (array[i] < value && i < size)
+	while (i < size && array[i] < value)
 	{
 		prev = i;
 		printf("Value checked array[%lu] = [%d]\n", prev, array[prev]);
