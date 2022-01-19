@@ -14,7 +14,7 @@ int jump_search(int *array, size_t size, int value)
 	size_t i;
 	size_t prev;
 
-	if (size == 0 || value > array[size - 1])
+	if (!array || size == 0)
 		return (-1);
 	/* Calculate block size of jumps */
 	step = sqrt(size);
